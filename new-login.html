@@ -37,14 +37,8 @@
             // Simulate fetching user data (in practice, you would verify against a database)
             const storedUserData = JSON.parse(localStorage.getItem('userData'));
 
-            if (usernameOrEmail==="arjun23" && password==="arjun1234") {
-                    feedbackElement.textContent = 'Login successful!';
-                    feedbackElement.style.color = 'green';
+           
                     window.location.href = 'new-after-login.html'; 
-                } 
-            } else {
-                feedbackElement.textContent = 'No user data found. Please sign up first.';
-                feedbackElement.style.color = 'red';
             }
         });
     </script>
