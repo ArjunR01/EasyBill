@@ -37,7 +37,7 @@
             // Simulate fetching user data (in practice, you would verify against a database)
             const storedUserData = JSON.parse(localStorage.getItem('userData'));
 
-            if (storedUserData) {
+            if (usernameOrEmail&&password) {
                 if (usernameOrEmail=="arjun23"&&password=="arjun1234") {
                     feedbackElement.textContent = 'Login successful!';
                     feedbackElement.style.color = 'green';
