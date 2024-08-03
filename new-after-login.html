@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyBill</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f7;
+        }
+
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e1e1e6;
+            padding: 15px 20px;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo img {
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        ul li {
+            margin: 0 15px;
+        }
+
+        ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        ul li a:hover {
+            color: #007aff;
+        }
+
+        @media (max-width: 768px) {
+            ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            ul li {
+                margin: 10px 0;
+            }
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            padding-top:80px;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007aff;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #005bb5;
+        }
+
+        .features {
+            margin: 40px 0;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .features img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #e1e1e6;
+            padding: 15px 20px;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="./images/download.png" alt="EasyBill Logo">
+            </div>
+            <ul>
+                <!-- <li><a href="index.html">Home</a></li> -->
+                <li><a href="findstore.html">Find a Store</a></li>
+                <li><a href="bill-now.html">Bill Now</a></li>
+                <li><a href="#Home">Store Pickup</a></li>
+                <li><a href="new-login.html">Log Out</a></li>
+                <!-- <li><a href="new-signup.html">Create Account</a></li> -->
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h1>Welcome to EasyBill</h1>
+        <p>EasyBill simplifies your billing experience with a user-friendly platform. Find stores, pay bills, and manage your account with ease. Whether you're at home or on the go, we've got you covered.</p>
+        <p>Our services are designed to make your life easier. From finding a nearby store to paying your bills quickly and securely, EasyBill ensures that you have a seamless experience every time.</p>
+        <!-- <a href="bill-now.html" class="cta-button">Get Started Now</a> -->
+
+        <div class="features">
+            <h2>How It Works</h2>
+            <p>See how easy it is to scan a product and add it to your cart using EasyBill:</p>
+            <img src="./images/scan1.jpeg" alt="Scanning a Product with Mobile">
+            <p>Just scan the barcode of the product with your mobile device, and it will be added to your cart automatically.</p>
+            <img src="./images/add-to-cart1.jpeg" alt="Adding to Cart">
+            <p>Review your cart and proceed to checkout with ease.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 EasyBill. All rights reserved.</p>
+    </footer>
+</body>
+</html>

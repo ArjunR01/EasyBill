@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Blinkit</title>
+    <link rel="stylesheet" href="styles/cart.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EasyBill</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Offers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart">
+                <a href="cart.html" id="cart-link">🛒 Cart (0)</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="cart-items">
+            <div class="container">
+                <h2>Your Cart</h2>
+                <div id="cart-content">
+                    <!-- Cart items will be injected here by JavaScript -->
+                </div>
+                <div class="address">
+                    <h3>Delivery Address</h3>
+                    <p id="delivery-address">
+                        <!-- Address will be injected here by JavaScript -->
+                    </p>
+                </div>
+                <div class="cart-total">
+                    <p id="total-price"><strong>Total:</strong> $0.00</p>
+                    <button id="checkout">Checkout</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EasyBill All rights reserved.</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartContent = document.getElementById('cart-content');
+            let address = localStorage.getItem('address') || 'No address set';
+            let city = localStorage.getItem('city') || '';
+            let state = localStorage.getItem('state') || '';
+            let pincode = localStorage.getItem('pincode') || '';
+            let totalPrice = 0;
+
+            
+            cartContent.innerHTML = '';
+            cart.forEach((item, index) => {
+                let itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <img src="${item.imageUrl || 'https://via.placeholder.com/150'}" alt="${item.productName}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <p><strong>${item.productName}</strong></p>
+                        <p>$${item.price.toFixed(2)}</p>
+                        <div class="quantity-manager">
+                            <button class="decrement">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+                `;
+                cartContent.appendChild(itemDiv);
+
+                totalPrice += item.price * item.quantity;
+            });
+
+            
+            document.getElementById('delivery-address').textContent = `${address}, ${city}, ${state}, ${pincode}`;
+
+         
+            document.getElementById('total-price').textContent = `Total: $${totalPrice.toFixed(2)}`;
+
+           
+            cartContent.addEventListener('click', function(event) {
+                let itemDiv = event.target.closest('.cart-item');
+                let index = Array.from(cartContent.children).indexOf(itemDiv);
+
+                if (event.target.classList.contains('increment')) {
+                    cart[index].quantity += 1;
+                }
+                if (event.target.classList.contains('decrement')) {
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity -= 1;
+                    }
+                }
+                updateCart();
+            });
+
+            function updateCart() {
+                let newTotalPrice = 0;
+                cart.forEach((item, index) => {
+                    newTotalPrice += item.price * item.quantity;
+                    cartContent.children[index].querySelector('.quantity').textContent = item.quantity;
+                });
+                localStorage.setItem('cart', JSON.stringify(cart));
+                document.getElementById('total-price').textContent = `Total: $${newTotalPrice.toFixed(2)}`;
+            }
+
+           
+            document.getElementById('checkout').addEventListener('click', () => {
+                alert('Proceeding to checkout...');
+            });
+        });
+    </script>
+</body>
+</html>

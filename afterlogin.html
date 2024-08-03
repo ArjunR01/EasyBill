@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Arjun</title>
+    <style>
+        body{
+            background-color: black;
+        }
+
+        ul{
+            width: 100%;
+            margin-left: -.3%;
+            color: ghostwhite;
+            list-style: none;
+            display: flex;
+            padding: 10px
+            
+        }
+
+        .navoptions{
+            margin-top: -7.7%;
+            margin-left: 8%;
+            /* background-color: dimgray; */
+        }
+
+        li{ 
+            padding-right: 25px;
+            font-family: serif;
+            font-size: 20px;
+        }
+
+        li a{
+            color: ghostwhite;
+            text-decoration: cornsilk;
+        }
+
+        .user{
+            margin-left: 45%;
+        }
+
+        span::before{
+            color: white;
+            content:"";
+            animation: store infinite 10.5s;
+            padding-left: 10px;
+            font-size: 30px;
+        }
+
+        @keyframes store {
+            0%{
+                content:"";
+            }
+            20%{
+                content:"Vishal Mega Mart";
+                
+            }
+            30%{
+                content:"Ushodaya Supermarkets";
+                
+                
+            }
+            45%{
+                content:"Reliance Mart";
+                
+            }
+            60%{
+                content:"Ratnadeep Retailers";
+                
+            }
+            75%{
+                content:"DMart";
+                
+            }
+            100%{
+                content:"More SuperMarkets";
+            }
+        }
+
+       marquee ul li img{
+        width: 150px;
+        height: 150px;
+       }
+
+       p{
+        color: white;
+        font-size: 30px;
+        margin-top: -48%;
+        font-family: serif;
+        font-weight: 50px;
+       }
+
+       video{
+        margin-top: -3%;
+        width: 100%;
+        opacity: 20%;
+       }
+
+       footer{
+        margin-top: 90%;
+        position: fixed;
+       }
+
+       h2{
+        color: white;
+       }
+
+
+
+    </style>
+</head>
+<body onload="typeWriter()">
+    <img style="margin-top: -3%; margin-left: 46%; border-radius: 50px; margin-left: -1.5%;" height="130px" width="130px" src="download.png" alt="college logo">
+    <nav>
+        <div class="navoptions">
+        <ul>
+            <!-- <li><a href="#Home">Home</a></li> -->
+            <li><a href="findstore.html">Find a store</a></li>
+            <li><a href="#Home">Bill now</a></li>
+            <li><a href="#Home">Store Pickup</a></li>
+            <li><a href="#Home">Past Transactions</a></li>
+            <li class="user"><a href="cart.html">Cart</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </div>
+    </nav>
+    <br>
+
+    <h2 id="welcome"></h2>
+
+    <h2 style="color: white; font-family: serif;">Our Parternerd Stores are<span></span></h2>
+
+    <marquee behavior="scroll" direction="right" scrollamount="20">
+        <ul>
+            <li><img src="more.png" alt=""></li>
+            <li><img src="dmart.jpg" alt=""></li>
+            <li><img src="ratna.jpg" alt=""></li>
+            <li><img src="reliance.png" alt=""></li>
+            <li><img src="usho.png" alt=""></li>
+            <li><img src="vishal.jpg" alt=""></li>
+        </ul>
+    </marquee>
+        <video src="videoplayback.mp4" loop autoplay muted></video>
+        <p id="demo"></p>
+
+    <script>
+        var greet=document.getElementById('welcome');
+        var name=localStorage.getItem('name',name.value);
+        greet.innerText='Welcome back '+name;
+        var i = 0;
+        var txt = 'Got tired of waiting in bill section in Grocery Stores..... Now Make hassle free payments using EasyBill. Use your mobile to scan products QR and finally pay the entire cart bill and get recepit in store or to your mail. You can even add items to cart online and avail store pick up...';
+        var speed = 25;
+        function typeWriter() {
+          if (i < txt.length) {
+            document.getElementById("demo").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+          }
+        }
+        </script>
+
+    
+        
+</body>
+
+<footer>
+    <ul>
+        <li>Office Address</li>
+        <li>Careers</li>
+        <li>Contact Us</li>
+    </ul>
+</footer>
+</html>
+    
+    <!-- <img src="https://cdn.prod.website-files.com/63b1eb82abde4cb807a93c5a/63b5be87e9029cbf5de7d30e_shopify-logo.svg" loading="lazy" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-216.648deg) skew(0deg, 0deg); transform-style: preserve-3d; will-change: transform;" data-w-id="9a64d1ab-8d35-f91c-f3a7-e37e9287a5fa" alt="Shopify logo"> -->

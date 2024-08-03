@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles\login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="username-or-email">Username or Email:</label>
+            <input type="text" id="username-or-email" name="username-or-email" placeholder="arjun23 or arjun@gmail.com" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="******" required minlength="8">
+
+            <button type="submit">Login</button>
+        </form>
+        <p class="message">Don't have an account? <a href="new-signup.html">Sign up here</a></p>
+        <div id="feedback" class="feedback-message"></div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const usernameOrEmail = document.getElementById('username-or-email').value;
+            const password = document.getElementById('password').value;
+            const feedbackElement = document.getElementById('feedback');
+
+            // Clear previous feedback message
+            feedbackElement.textContent = '';
+
+            // Simulate fetching user data (in practice, you would verify against a database)
+            const storedUserData = JSON.parse(localStorage.getItem('userData'));
+
+            if (storedUserData) {
+                if (usernameOrEmail=="arjun23"&&password=="arjun1234") {
+                    feedbackElement.textContent = 'Login successful!';
+                    feedbackElement.style.color = 'green';
+                    window.location.href = 'new-after-login.html'; 
+                } else {
+                    feedbackElement.textContent = 'Invalid username/email or password.';
+                    feedbackElement.style.color = 'red';
+                }
+            } else {
+                feedbackElement.textContent = 'No user data found. Please sign up first.';
+                feedbackElement.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
