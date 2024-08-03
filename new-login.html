@@ -17,29 +17,10 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="******" required minlength="8">
 
-            <button type="submit">Login</button>
+            <button><a href="new-after-login.html">Login</a></button>
         </form>
         <p class="message">Don't have an account? <a href="new-signup.html">Sign up here</a></p>
-        <div id="feedback" class="feedback-message"></div>
     </div>
 
-    <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const usernameOrEmail = document.getElementById('username-or-email').value;
-            const password = document.getElementById('password').value;
-            const feedbackElement = document.getElementById('feedback');
-
-            // Clear previous feedback message
-            feedbackElement.textContent = '';
-
-            // Simulate fetching user data (in practice, you would verify against a database)
-            const storedUserData = JSON.parse(localStorage.getItem('userData'));
-
-           if(usernameOrEmail==="arjunrj"){
-                    window.location.href = 'new-after-login.html'; }
-            });
-    </script>
 </body>
 </html>
